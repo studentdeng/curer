@@ -105,11 +105,14 @@ class Progress extends REST_Controller {
             
             if (!in_array($item, $timeLabels))
             {
-                $container[] = array('time' => '0', 'week' => $item);
+                $container[] = array('time' => '0', 'week' => $item, 'name' => $item);
             }
             else
             {
                 $key = array_search($item, $timeLabels);
+                
+                $result[$key]['name'] = $result[$key]['week'];
+                
                 $container[] = $result[$key];
             }
         }
@@ -141,7 +144,7 @@ class Progress extends REST_Controller {
      */
     public function evaluate_get() {
         $time = $this->get('time');
-        //$time = "2013-07-31 23:00:00";
+        //$time = "2013-12-31 23:59:59";
         $inputParam = array('plan_id');
         $paramValues = $this->gets($inputParam);
 
@@ -234,7 +237,7 @@ class Progress extends REST_Controller {
             'html2' => $html2
         ));
     }
-    
+
     private function calSumTime($plan_id) {
         $db = $this->load->database('default', TRUE);
         $sql = "select *, SUM(cost_time_min) as sum_time_min, count(id) as sum_day
