@@ -25,11 +25,11 @@ class Chart extends REST_Controller
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <head>
         <title>chart</title>
-        <script type="text/javascript" src="http://192.168.1.200/curer/js/jquery.js"></script>
-        <script type="text/javascript" src="http://192.168.1.200/curer/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="http://192.168.1.200/curer/js/jquery.paging.min.js"></script>
-        <script type="text/javascript" src="http://192.168.1.200/curer/js/jquery.jqpagination.js"></script>
-        <script type="text/javascript" src="http://192.168.1.200/curer/js/Chart.js"></script>
+        <script type="text/javascript" src="http://112.124.107.63/curer/js/jquery.js"></script>
+        <script type="text/javascript" src="http://112.124.107.63/curer/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://112.124.107.63/curer/js/jquery.paging.min.js"></script>
+        <script type="text/javascript" src="http://112.124.107.63/curer/js/jquery.jqpagination.js"></script>
+        <script type="text/javascript" src="http://112.124.107.63/curer/js/Chart.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
     </head>

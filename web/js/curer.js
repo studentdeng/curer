@@ -1,4 +1,4 @@
-var mainUrl = 'http://192.168.1.200/curer/';
+var mainUrl = 'http://112.124.107.63/curer/';
 
 $(document).ready(function() {
 
