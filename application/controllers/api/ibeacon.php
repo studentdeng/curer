@@ -18,7 +18,7 @@ class Ibeacon extends CUREST_Controller
 
         $message = $paramValues["message"];
         
-        $db = $this->load->database('curer', TRUE);
+        $db = $this->load->database('default', TRUE);
         
         $data = array(
             'time' => date('Y-m-d H:i:s'),
@@ -38,7 +38,7 @@ class Ibeacon extends CUREST_Controller
 
         $message = $paramValues["message"];
         
-        $db = $this->load->database('curer', TRUE);
+        $db = $this->load->database('default', TRUE);
         
         $data = array(
             'time' => date('Y-m-d H:i:s'),
