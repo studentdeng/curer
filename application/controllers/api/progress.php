@@ -3,10 +3,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
-require APPPATH . '/libraries/REST_Controller.php';
+require APPPATH . '/libraries/CUREST_Controller.php';
 require APPPATH . '/third_party/ExpressiveDate.php';
 
-class Progress extends REST_Controller {
+class Progress extends CUREST_Controller {
 
     public $rest_format = 'json';
 
