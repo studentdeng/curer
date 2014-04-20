@@ -1,88 +1,84 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="css/docs.css" rel="stylesheet" media="screen">
-    <link href="css/datepicker.css" rel="stylesheet" media="screen">
-    <link href="css/jqpagination.css" rel="stylesheet" media="screen">
-    <style>
-        body {
-            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        }
-    </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Highstock Example</title>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="js/highstock.js"></script>
+        <script src="js/highcharts.js"></script>
+        <script src="js/modules/exporting.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#container').highcharts({
+                    chart: {
+                        type: 'area',
+                        spacingBottom: 30,
+                        //plotBorderColor: '#FFFFFF'
+                    },
+                    title: {
+                        text: '真是太爽了'
+                    },
+                    subtitle: {
+                        text: '* 邓宇光自己搞的图片，灰常喜欢有木有',
+                        floating: true,
+                        align: 'right',
+                        verticalAlign: 'bottom',
+                        y: 25
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 0,
+                        y: -10,
+                        floating: true,
+                        borderWidth: 0,
+                        backgroundColor: '#FFFFFF',
+                        padding : 2
+                    },
+                    xAxis: {
+                        categories: ['Apples', 'Pears', 'Oranges', 'Bananas', 'Grapes', 'Plums', 'Strawberries', 'Raspberries']
+                    },
+                    yAxis: {
+                        title: {
+                            text: ''
+                        },
+                        labels: {
+                            formatter: function() {
+                                return this.value;
+                            }
+                        }
+                    },
+                    tooltip: {
+                        formatter: function() {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                                    this.x + ': ' + this.y;
+                        }
+                    },
+                    plotOptions: {
+                        area: {
+                            fillOpacity: 0.3
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    
+                    series: [{
+                            name: 'english',
+                            data: [10, 12, 4, 4, 5, 2, 3, 7]
+                        }, {
+                            name: 'coding',
+                            data: [1, 0, 3, 3, 3, 1, 2, 1]
+                        }]
+
+                });
+            });
+
+        </script>
     </head>
     <body>
-      <div id ='box'>
-          
-      </div>
-      <div class="pagination">
-    <a href="#" class="first" data-action="first">&laquo;</a>
-    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-    <input type="text" readonly="readonly" data-max-page="40" />
-    <a href="#" class="next" data-action="next">&rsaquo;</a>
-    <a href="#" class="last" data-action="last">&raquo;</a>
-</div>
-        
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="js/json-to-table.js"></script>
-        <script type="text/javascript" src="js/jquery.jqpagination.js"></script>
-        <script type="text/javascript" >
-            
-     var url = 'http://192.168.1.200/curer/index.php/api/progress/list?plan_id=1';
-     $.ajax({
-         url: url,
-         type: "get",
-         async: false,
-         data:{},
-         dataType: "json",
-         success: function (data){
-             var objectArray = data.list;
-             var displayArray = new Array();
-             
-             for (i in objectArray)
-             {
-                 item = objectArray[i];
-                 var myItem = new Object();
-                 myItem.cost_time_min = item.cost_time_min;
-                 myItem.created = item.created;
-                 displayArray.push(myItem);
-             }
-             
-             var jsonHtmlTable = ConvertJsonToTable(
-                     displayArray, 
-                    'jsonTable', 
-                    "table table-hover table-striped", 
-                    'Download'
-                );
-                    
-             alert('123');
-                    
-             $('#box').append(jsonHtmlTable);
-         },
-         error: function () {
-             alert('error');
-         }
-     });
-        </script>
-        <script>
-            $('.pagination').jqPagination({
-		link_string	: '/?page={page_number}',
-		max_page	: 5,
-		paged		: function(page) {
-			//$('.log').prepend('<li>Requested page ' + page + '</li>');
-                        alert(page);
-		}
-	});
-        </script>
+        <div id="container" style="height: 400px; min-width: 400px"></div>
     </body>
-   
 </html>
