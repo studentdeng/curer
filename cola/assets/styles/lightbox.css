@@ -1,0 +1,49 @@
+.lightbox {
+    position: fixed;
+    background: #ffffff;
+    padding: 30px;
+    top: 40%;
+    left: 50%;
+    margin-left: -280px;
+    z-index: 9999;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); 
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); 
+}
+
+.lightbox-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.lightbox .title-supplement { color: #999; }
+
+.lightbox .lightbox-buttons {
+    padding: 20px 0 0 0;
+    line-height: 32px;
+}
+
+.lightbox .lightbox-buttons .lightbox-button,
+.lightbox .lightbox-buttons .lightbox-link {
+    margin: 0 10px 0 0;
+}
+
+.lightbox .lightbox-close { 
+    position:absolute; 
+    top: 20px; 
+    right: 20px;
+    width: 13px;
+    height: 13px;
+    background: url(/assets/images/icon-lightbox-close.png) 0 0 no-repeat;
+    text-indent: -999999px;
+    cursor: pointer;
+}
+
+.lightbox .lightbox-close:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}

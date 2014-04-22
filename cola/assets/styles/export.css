@@ -1,0 +1,35 @@
+
+#dialog-export .choose-time {
+    padding: 15px;
+    background: #eff5f7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#dialog-export .choose-time .desc {
+    color: #000000;
+}
+
+#dialog-export .choose-time .time {
+    margin: 10px 0 0 0;
+}
+
+#dialog-export .choose-time .datepicker {
+    width: 120px;
+    font-size: 14px;
+    padding: 3px 5px;
+    background: #ffffff;
+}
+
+#dialog-export .choose-time .ui-datepicker-trigger {
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: -18px;
+}
+
+#dialog-export .info {
+    padding: 15px 0 0 2px;
+    color: #666666;
+}
