@@ -50,7 +50,7 @@ class Worklog extends CUREST_Controller {
             $item['labels'] = array($label);
             $item['end_time'] = intval($item['end_time']);
             $item['start_time'] = intval($item['start_time']);
-            $item['duration'] = intval($item['duration']);
+            $item['duration'] = floatval($item['duration']);
             $item['id'] = intval($item['id']);
 
             $time = date('Y-m-d', $item['start_time'] / 1000);
@@ -195,6 +195,10 @@ class Worklog extends CUREST_Controller {
         while (!feof($file_handle)) {
 
             $line_of_text = fgetcsv($file_handle, 1024 * 20);
+            if (empty($line_of_text))
+            {
+                continue;
+            }
 
             $startDate = $line_of_text[0];
             $startTime = $line_of_text[1];
@@ -248,7 +252,7 @@ class Worklog extends CUREST_Controller {
             'content' => $item['text'],
             'team_id' => '990de71f506043858c431e1ea41dc725',
             'create_time' => $item['startDate'],
-            'duration' => intval($item['duration']),
+            'duration' => floatval($item['duration']),
             'guid' => uniqid(),
             'end_time' => strtotime($item['endTime']) * 1000,
             'start_t' => $item['startTime'],
