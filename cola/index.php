@@ -124,7 +124,7 @@
         <li class="team">
             <a href="/team/"><span>团队日志</span></a>
         </li>
-        <li class=""><a href="/curer/cola/stats/team/member/">统计</a></li>
+        <li class=""><a href="/curer/cola/stats/team/label/">统计</a></li>
         <li class=""><a href="/shop/">积分</a></li>
     </ul>
     <ul class="header-links">
