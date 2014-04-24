@@ -47,7 +47,7 @@ class Stats extends CUREST_Controller {
                 $dataDic[$key] = 0;
             }
             
-            $dataDic[$key] += floatval($value['duration']);
+            $dataDic[$key] += $value['duration'] / 3600;
         }
 
         foreach ($dataDic as $key => $value) {
@@ -71,7 +71,7 @@ class Stats extends CUREST_Controller {
         
         $sumDuration = 0;
         foreach ($result as $value) {
-            $sumDuration += $value['amount'];
+            $sumDuration += intval($value['amount']);
         }
         
         if ($sumDuration == 0)
@@ -86,7 +86,7 @@ class Stats extends CUREST_Controller {
             
             $item = array();
             $item['percent'] = $value['amount'] / $sumDuration;
-            $item['amount'] = floatval($value['amount']) * 3600;
+            $item['amount'] = intval($value['amount']);
             $item['guid'] = uniqid();
             $item['sub_title'] = null;
             $item['title'] = array(
@@ -101,37 +101,4 @@ class Stats extends CUREST_Controller {
 
         return $data;
     }
-
-    public function insertDB($item) {
-        $db = $this->load->database('default', TRUE);
-
-        $labels = array(
-            '自我提高' => 2,
-            '其他' => 3,
-            '项目会议与沟通' => 4,
-            '产品开发' => 5,
-            '健身' => 6,
-            '活动' => 7,
-            '英语' => 8,
-            'code review' => 9,
-            '产品设计' => 10,
-            '文档编写' => 11,
-            '驾照' => 12,
-        );
-
-        $db->insert('cola_log', array(
-            'start_time' => strtotime($item['startTime']) * 1000,
-            'label_id' => $labels[$item['category']],
-            'content' => $item['text'],
-            'team_id' => '990de71f506043858c431e1ea41dc725',
-            'create_time' => $item['startDate'],
-            'duration' => intval($item['duration']),
-            'guid' => uniqid(),
-            'end_time' => strtotime($item['endTime']) * 1000,
-            'start_t' => $item['startTime'],
-            'end_t' => $item['endTime'],
-        ));
-        $db->close();
-    }
-
 }
