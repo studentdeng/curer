@@ -105,7 +105,7 @@
         
     </div>
     <ul class="nav">
-        <li class=""><a href="/home/">我的日志</a></li>
+        <li class=""><a href="/curer/cola/">我的日志</a></li>
         <li class="team">
             <a href="/team/"><span>团队日志</span></a>
         </li>
