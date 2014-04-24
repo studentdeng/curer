@@ -133,8 +133,8 @@
         <div class="content clearfix">
                 <ul class="stats-nav">
                     
-                    <li class="active"><a href="/stats/team/member/">成员统计</a></li>
-                    <li><a href="/stats/team/label/">分类统计</a></li>
+                    <li><a href="/stats/team/member/">成员统计</a></li>
+                    <li class="active"><a href="/stats/team/label/">分类统计</a></li>
                     
                 </ul>
                 <div class="control-bar">
