@@ -87,7 +87,7 @@
     <div class="wrapper layout-1" id="my-worklog">
         <div class="header">
     <div class="header-team hover">
-        <h1 title="回到首页"><a href="/home/">Studentdeng 的家啊哈哈哈</a></h1>
+        <h1 title="回到首页"><a href="/home/">Studentdeng</a></h1>
         
         <a href="#" class="switch-team" title="切换团队">&#x25bc;</a>
         <ul id="switch-list" class="switch-list">
