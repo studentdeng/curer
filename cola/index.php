@@ -120,7 +120,7 @@
         
     </div>
     <ul class="nav">
-        <li class="active"><a href="/home/">我的日志</a></li>
+        <li class="active"><a href="/curer/cola/">我的日志</a></li>
         <li class="team">
             <a href="/team/"><span>团队日志</span></a>
         </li>
@@ -155,7 +155,7 @@
             
             <ul class="tool-links">
                 <li class="stats">
-                    <span class="title"><a href="/stats/team/member/1bf27d0f003c411193b6f8bfe28b8dfc/">统计</a></span>
+                    <span class="title"><a href="/curer/cola/stats/team/label">统计</a></span>
                     <span class="desc">按照分类统计你的工作记录</span>
                 </li>
                 <li class="export">
