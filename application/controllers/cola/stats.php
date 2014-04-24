@@ -9,9 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/CUREST_Controller.php';
 
 class Stats extends CUREST_Controller {
+    
+    var $interval = 0;
 
     public function chat_post() {
-        
+
         $this->load->model('Label_model');
 
         $inputParam = array('data');
@@ -20,6 +22,8 @@ class Stats extends CUREST_Controller {
         $data = $paramValues["data"];
 
         $dataParam = json_decode($data, TRUE);
+
+        $this->interval = $dataParam['interval'];
 
         $start = $dataParam['start'];
         $end = $dataParam['end'];
@@ -34,27 +38,61 @@ class Stats extends CUREST_Controller {
 
         $db = $this->load->database('default', TRUE);
         $sql = "SELECT * FROM `cola_log` WHERE start_time >= ? AND end_time <= ? order by start_time";
-        
+
         $query = $db->query($sql, array($start, $end));
         $db->close();
         $result = $query->result_array();
 
         $dataDic = array();
         foreach ($result as $value) {
-            $key = date('n月d日', $value['start_time'] / 1000);
-            if (empty($dataDic[$key]))
-            {
+            $key = date('n月j日', $value['start_time'] / 1000);
+            if (empty($dataDic[$key])) {
                 $dataDic[$key] = 0;
             }
-            
+
             $dataDic[$key] += $value['duration'] / 3600;
         }
 
+        $i = 1;
+        $amount = 0;
+        $startTime = 0;
+        $data = array();
+        $categories = array();
         foreach ($dataDic as $key => $value) {
-            $data[] = $value;
-            $categories[] = $key;
+            
+            if ($i == 1)
+            {
+                $startTime = $key;
+            }
+
+            if ($i == $this->interval) {
+                $amount += $value;
+                $data[] = $amount;
+                
+                if ($this->interval != 1) {
+                    $categories[] = $startTime."-".$key;
+                }  else {
+                    $categories[] = $startTime;
+                }
+                
+                $amount = 0;
+                $i = 1;
+                $startTime = $key;
+                
+                continue;
+            } else {
+                $amount += $value;
+            }
+
+            $i ++;
         }
         
+        if ($amount > 0)
+        {
+            $data[] = $amount;
+            $categories[] = $startTime."-".$key;
+        }
+
         return array(
             'data' => $data,
             'categories' => $categories,
@@ -68,14 +106,13 @@ class Stats extends CUREST_Controller {
         $query = $db->query($sql, array($start, $end));
         $db->close();
         $result = $query->result_array();
-        
+
         $sumDuration = 0;
         foreach ($result as $value) {
             $sumDuration += intval($value['amount']);
         }
-        
-        if ($sumDuration == 0)
-        {
+
+        if ($sumDuration == 0) {
             return;
         }
 
@@ -83,7 +120,7 @@ class Stats extends CUREST_Controller {
         foreach ($result as $value) {
 
             $label = $this->Label_model->findLabelWithId($value['label_id']);
-            
+
             $item = array();
             $item['percent'] = $value['amount'] / $sumDuration;
             $item['amount'] = intval($value['amount']);
@@ -91,11 +128,11 @@ class Stats extends CUREST_Controller {
             $item['sub_title'] = null;
             $item['title'] = array(
                 array(
-                'url' => 'http://www.baidu.com',
-                'name' => $label['name'],
-            )
+                    'url' => 'http://www.baidu.com', //TODO::
+                    'name' => $label['name'],
+                )
             );
-            
+
             $data[] = $item;
         }
 
