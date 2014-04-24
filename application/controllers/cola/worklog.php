@@ -155,7 +155,7 @@ class Worklog extends CUREST_Controller {
             'team_id' => $teamId,
             'create_time' => date('Y-m-d H:i:s'),
             'duration' => ($end - $start) / 1000,
-            'guid' => uniqid(),
+            'guid' => $updateGuid,
         ));
 
         $db->close();
@@ -215,7 +215,7 @@ class Worklog extends CUREST_Controller {
             $item['startDate'] = $startDate;
             $item['startTime'] = $startTime;
             $item['endTime'] = $endTime;
-            $item['duration'] = $duration;
+            $item['duration'] = $duration * 3600;
             $item['text'] = $text;
             $item['category'] = $category;
 
@@ -252,7 +252,7 @@ class Worklog extends CUREST_Controller {
             'content' => $item['text'],
             'team_id' => '990de71f506043858c431e1ea41dc725',
             'create_time' => $item['startDate'],
-            'duration' => floatval($item['duration']),
+            'duration' => $item['duration'],
             'guid' => uniqid(),
             'end_time' => strtotime($item['endTime']) * 1000,
             'start_t' => $item['startTime'],
