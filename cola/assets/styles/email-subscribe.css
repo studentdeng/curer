@@ -1,0 +1,32 @@
+#dialog-email-subscribe .subscribe-box {
+    margin: 10px 0 0 0;
+    padding: 15px;
+    background: #eff5f7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#dialog-email-subscribe .info {
+    margin: 10px 0 0 0;
+    line-height: 20px;
+    color: #666666;
+}
+
+#dialog-email-subscribe .info em {
+    font-style: normal;
+    font-weight: 800;
+    margin: 0 0 0 5px;
+    color: #000000;
+}
+
+#dialog-email-subscribe .subscribe-success {
+    line-height: 30px;
+    font-size: 14px;
+    padding: 0 0 0 24px;
+    background: url(../images/icon-success-small.png) no-repeat 0 8px;
+}
+
+#dialog-email-subscribe #link-email-unsubscribe {
+    margin: 0 0 0 8px;
+}

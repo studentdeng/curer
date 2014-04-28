@@ -128,7 +128,7 @@ class Stats extends CUREST_Controller {
             $item['sub_title'] = null;
             $item['title'] = array(
                 array(
-                    'url' => 'http://www.baidu.com', //TODO::
+                    'url' => '/curer/cola/stats/team/label?label_id='.$value['label_id'], //TODO::
                     'name' => $label['name'],
                 )
             );
