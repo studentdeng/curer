@@ -119,7 +119,7 @@
         </ul>
         
     </div>
-    <ul class="nav">team
+    <ul class="nav">
         <li class="active"><a href="/curer/cola/">我的日志</a></li>
         <li class="team">
             <a href="/curer/cola/team/"><span>团队日志</span></a>
