@@ -1,8 +1,8 @@
 ( function( $ ) {
 
 $.preloadImages([
-    "/assets/images/yin-dang-de-yi-tian.png",
-    "/assets/images/no-worklog-day.png"
+    "/curer/cola/assets/images/yin-dang-de-yi-tian.png",
+    "/curer/cola/assets/images/no-worklog-day.png"
 ]);
 
 var currentDate = Date.today(),
@@ -134,6 +134,7 @@ function fetchData( ) {
     
         
     function loadData( data ) {
+
         var teamWorklog = $( ".team-worklog" ).empty().removeClass( "no-worklog" ),
             noWorklogMembers = [],
             noWorklog = true;
@@ -143,6 +144,7 @@ function fetchData( ) {
         });
         
         $.each( teamcola.members, function( index, member ) {
+
             if ( data[member.guid] && data[member.guid].length ) {
                 noWorklog = false;
                 

@@ -56,7 +56,12 @@ class Worklog extends CUREST_Controller {
             $time = date('Y-m-d', $item['start_time'] / 1000);
             $time = strtotime($time) * 1000;
 
-            $resultData["$time"][] = $item;
+            if (!empty($dataParam['teams'])) {
+                $resultData["$time"]['1bf27d0f003c411193b6f8bfe28b8dfc'][] = $item;
+            }
+            else {
+                $resultData["$time"][] = $item;
+            }
         }
 
         $this->response(array(
