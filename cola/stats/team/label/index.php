@@ -52,17 +52,6 @@
 
     <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-21389765-1']);
-  _gaq.push(['_setDomainName', 'teamcola.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
 </script>
 </head>
 <body>
@@ -107,7 +96,7 @@
     <ul class="nav">
         <li class=""><a href="/curer/cola/">我的日志</a></li>
         <li class="team">
-            <a href="/team/"><span>团队日志</span></a>
+            <a href="/curer/cola/team/"><span>团队日志</span></a>
         </li>
         <li class="active"><a href="/stats/team/member/">统计</a></li>
         <li class=""><a href="/shop/">积分</a></li>
