@@ -1,0 +1,224 @@
+.sidebar h2 .name {
+    display: block;
+    float: left;
+    width: 170px;
+    font-size: 20px;
+}
+
+.sidebar h2 .name span {
+    color: #999999;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.sidebar h2 .color {
+    display: block;
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin: 5px 10px 0 0;
+    background: #777777;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h2 .link-team-settings {
+    float: right;
+    font-size: 12px;
+    margin: 0 12px 0 0;
+}
+
+.label-list {
+    overflow: hidden;
+    -webkit-transition: height 0.3s ease-in-out;
+    -moz-transition: height 0.3s ease-in-out;
+    -o-transition: height 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out;
+}
+
+.label-list li {
+    line-height: 14px;
+    margin: 0 0 10px 0;
+}
+
+.label-list li .color {
+    float: left;
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 1px 8px 0 5px;
+    background: #777777;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.label-list li .name {
+    display: block;
+    float: left;
+    width: 182px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.toggle-labels {
+    margin: 0 0 0 13px;
+}
+
+.toggle-labels #link-toggle-labels {
+    float: left;
+    color: #999999;
+}
+
+.toggle-labels span {
+    float: left;
+    color: #bbbbbb;
+    font-size: 10px;
+    margin: 0 2px 0 0;
+}
+
+.arch-link {
+    margin-left:5px;
+}
+
+.arch-link a {
+    color:#999;
+}
+
+.member-list {
+    
+}
+
+.member-list li {
+    float: left;
+    margin: 0 14px 15px 0;
+}
+
+.member-list li .avatar {
+    display: block;
+    border: 1px solid #aaaaaa;
+    padding: 2px;
+    background: #ffffff;
+}
+
+.member-list li .avatar img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.member-list li .name {
+    display: block;
+    width: 56px;
+    line-height: 1.2;
+    text-align: center;
+    margin: 5px 0 0 0;
+}
+
+.tool-links {
+    margin-top: 30px;
+}
+
+.top-bar {
+    padding: 0 30px;
+}
+
+.top-bar h3 {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar .link-label-worklog {
+    float: right;
+    line-height: 32px;
+    font-size: 12px;
+}
+
+
+.no-worklog-members {
+    display: none;
+    border-top: 1px dotted #cccccc;
+    padding: 0 0 20px 0;
+}
+
+.no-worklog-members h3 {
+    padding: 0 0 0 40px;
+	margin:20px 0 15px;
+	color:#777777;
+}
+
+.no-worklog-members .member-list {
+    padding: 0 40px 0 40px;
+}
+
+.tour {
+    width: 1040px;
+    padding: 70px 0 0 0;
+    background: url(../images/bg-highlight.png) no-repeat 50% 0;
+}
+
+.tour h2 {
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+}
+
+.tour .desc {
+    font-size: 16px;
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+.tour .buttons {
+    text-align:center;
+    height: 50px;
+    margin: 40px auto 0;
+}
+
+.tour .buttons .btn-add-member {
+    margin: 0 20px 0 0;
+}
+
+.tour .tour-img {
+    display: block;
+    margin: 40px auto 0 auto;
+}
+
+.tour .copyright {
+    padding: 60px 0 40px;
+    color: #6c6c6c;
+    text-align: center;
+}
+
+.tour .copyright a {
+    color: #6c6c6c;
+    text-decoration: none;
+}
+
+#back-to-top {
+	display:none;
+	bottom:0px;
+	right:300px;
+	position: fixed;
+	height:30px;
+	line-height:30px;
+	-moz-border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    border-radius: 4px 0 0 0;
+	color:#666;
+	-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top:hover {
+	text-decoration: underline;
+}

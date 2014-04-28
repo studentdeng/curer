@@ -119,10 +119,10 @@
         </ul>
         
     </div>
-    <ul class="nav">
+    <ul class="nav">team
         <li class="active"><a href="/curer/cola/">我的日志</a></li>
         <li class="team">
-            <a href="/team/"><span>团队日志</span></a>
+            <a href="/curer/cola/team/"><span>团队日志</span></a>
         </li>
         <li class=""><a href="/curer/cola/stats/team/label/">统计</a></li>
         <li class=""><a href="/shop/">积分</a></li>
