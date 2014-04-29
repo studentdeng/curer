@@ -282,7 +282,7 @@ class Worklog extends CUREST_Controller {
         $this->response(array(
             'worklogs' => $resultData,
             'success' => TRUE,
-            'end' => TRUE,
+            'end' => count($resultData) == 0,
         ));
     }
 
