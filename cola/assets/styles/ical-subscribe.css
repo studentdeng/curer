@@ -1,0 +1,39 @@
+
+#dialog-ical-subscribe .desc {
+    line-height: 20px;
+}
+
+#dialog-ical-subscribe .desc em {
+    font-style: normal;
+    font-weight: 800;
+    margin: 0 5px;
+}
+
+#dialog-ical-subscribe .subscribe-box {
+    margin: 10px 0 0 0;
+    padding: 15px;
+    background: #eff5f7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#dialog-ical-subscribe .subscribe-box .link-icalendar {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+
+#dialog-ical-subscribe .info {
+    display: none;
+    margin: 10px 0 0 0;
+    line-height: 20px;
+    color: #666666;
+}
+
+#dialog-ical-subscribe .info em {
+    font-style: normal;
+    font-weight: 800;
+    margin: 0 0 0 5px;
+    color: #000000;
+}
