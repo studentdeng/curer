@@ -1,0 +1,156 @@
+
+.content {
+    position: relative;
+}
+
+.worklogs-wrapper {
+    min-height: 400px;
+}
+
+.member-info {
+    width: 220px;
+    background: #f3f3f3;
+    position: relative;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.member-info .avatar {
+    border: 1px solid #cccccc;
+    padding: 2px;
+    background: #ffffff;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.member-info .avatar img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.member-info .name {
+    display: block;
+    padding: 24px 0 8px 80px;
+    font-size: 22px;
+    color: #333333;
+    border-bottom: 1px solid #cccccc;
+}
+
+.member-info .name em {
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    width: 130px;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+}
+
+.member-info .info-list {
+    padding: 25px 0 15px 15px;
+    border-top: 1px solid #f9f9f9;
+}
+
+.member-info .info-list li {
+    padding: 0 10px 0 20px;
+    margin: 0 0 5px 0;
+    line-height: 20px;
+    font-size: 14px;
+    color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.member-info .info-list li.no-phone {
+    font-size: 12px;
+    color: #999999;
+}
+
+.member-info .info-list li a {
+    color: #333333;
+}
+
+.member-info .info-list li a:hover {
+    color: #999999;
+    text-decoration: none;
+}
+
+.member-info .info-list li.phone {
+    background: url(../images/icon-small-phone.png) no-repeat 0 2px;
+}
+
+.member-info .info-list li.email {
+    background: url(../images/icon-small-email.png) no-repeat 0 6px;
+}
+
+.top-bar {
+    padding: 0 30px;
+    margin: 20px 0 10px 0;
+}
+
+.top-bar h3 {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar .date-control {
+    float: left;
+    margin: 0 0 0 20px;
+}
+
+.switch-worklog-views {
+    float: right;
+}
+
+.tour {
+    padding: 60px;
+}
+
+.tour .title {
+    font-size: 30px;
+}
+
+.tour .desc {
+    font-size: 16px;
+    color: #666666;
+    margin: 10px 0 0 0;
+}
+
+.tour .tour-img {
+    display: block;
+    width: 556px;
+    height: 379px;
+    margin: 30px 0 30px 0;
+    position: relative;
+    left: -15px;
+}
+
+#back-to-top {
+	display:none;
+	bottom:0px;
+	right:300px;
+	position: fixed;
+	height:30px;
+	line-height:30px;
+	-moz-border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    border-radius: 4px 0 0 0;
+	color:#666;
+	-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top:hover {
+	text-decoration: underline;
+}

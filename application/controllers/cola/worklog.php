@@ -234,6 +234,58 @@ class Worklog extends CUREST_Controller {
         $this->response($result);
     }
 
+    public function mylist_post() {
+        $inputParam = array('data');
+        $paramValues = $this->posts($inputParam);
+        $data = $paramValues["data"];
+        $dataParam = json_decode($data, TRUE);
+        $start = 0;
+        $end = $dataParam['end'];
+
+
+        $db = $this->load->database('default', TRUE);
+        $sql = "select * from cola_log where end_time <= ? ORDER BY start_time desc limit 100";
+        $query = $db->query($sql, array($end));
+        $db->close();
+        $result = $query->result_array();
+
+        $resultData = array();
+
+        foreach ($result as $item) { {
+                $dbS = $this->load->database('default', TRUE);
+                $dbS->where('id', $item['label_id']);
+                $queryS = $dbS->get('cola_label');
+                $dbS->close();
+
+                $resultS = $queryS->row_array();
+                $resultS['id'] = intval($resultS['id']);
+                $resultS['status'] = intval($resultS['status']);
+                $resultS['priority'] = intval($resultS['priority']);
+
+                $label = $resultS;
+            }
+
+            $item['labels'] = array($label);
+            $item['end_time'] = intval($item['end_time']);
+            $item['start_time'] = intval($item['start_time']);
+            $item['duration'] = floatval($item['duration']);
+            $item['id'] = intval($item['id']);
+            $item['html_content'] = "<p>". $item['content'] ."</p>";
+            $item['comments'] = 0;
+
+            $time = date('Y-m-d', $item['start_time'] / 1000);
+            $time = strtotime($time) * 1000;
+
+            $resultData[$time][] = $item;
+        }
+
+        $this->response(array(
+            'worklogs' => $resultData,
+            'success' => TRUE,
+            'end' => TRUE,
+        ));
+    }
+
     public function insertDB($item) {
         $db = $this->load->database('default', TRUE);
 
