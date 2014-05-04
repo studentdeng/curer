@@ -58,8 +58,7 @@ class Worklog extends CUREST_Controller {
 
             if (!empty($dataParam['teams'])) {
                 $resultData["$time"]['1bf27d0f003c411193b6f8bfe28b8dfc'][] = $item;
-            }
-            else {
+            } else {
                 $resultData["$time"][] = $item;
             }
         }
@@ -83,8 +82,7 @@ class Worklog extends CUREST_Controller {
         $teamId = $dataParam['team'];
         $labelGuid = $dataParam['labels'][0];
         $start = $dataParam['start'];
-        $end = $dataParam['end'];
-        {
+        $end = $dataParam['end']; {
             $dbS = $this->load->database('default', TRUE);
             $dbS->where('guid', $labelGuid);
             $queryS = $dbS->get('cola_label');
@@ -118,8 +116,62 @@ class Worklog extends CUREST_Controller {
 
         $result = $queryL->row_array();
         $result['labels'] = array($resultS);
+        
+        $this->filter_star($content, $insertId);
 
         $this->response(array('worklog' => $result, 'success' => TRUE));
+    }
+
+    private function filter_star($post_content, $log_id) {
+
+        //#数组
+        $tag_pattern = "/\#([^\#|.]+)\#/";
+        preg_match_all($tag_pattern, $post_content, $tagsarr);
+        $tags = implode(',', $tagsarr[1]);
+
+        $user_pattern = "/\@([a-zA-z0-9_]+)/";
+
+        preg_match_all($user_pattern, $post_content, $userArr);
+        //@数组
+        $userArr = implode(',', $userArr[1]);
+        if (empty($userArr)) {
+            return;
+        }
+
+        if (!is_numeric($userArr[0])) {
+            return;
+        }
+
+        $star = $userArr[0];
+
+        $dbS = $this->load->database('default', TRUE);
+        $dbS->where('log_id', $log_id);
+        $queryS = $dbS->get('cola_star');
+        $dbS->close();
+
+        $resultS = $queryS->row_array();
+        if ($queryS->num_rows() > 0) {
+            $id = $resultS['id'];
+            
+            $db = $this->load->database('default', TRUE);
+            $db->where('id', $id);
+            $db->update('cola_star', array(
+                'create_time' => date('Y-m-d H:i:s', time()),
+                'star' => $star,
+                'log_id' => $log_id,
+            ));
+
+            $db->close();
+        } else {
+            $db = $this->load->database('default', TRUE);
+            $db->insert('cola_star', array(
+                'create_time' => date('Y-m-d H:i:s', time()),
+                'star' => $star,
+                'log_id' => $log_id,
+            ));
+
+            $db->close();
+        }
     }
 
     public function update_post() {
@@ -137,8 +189,7 @@ class Worklog extends CUREST_Controller {
 
         $updateGuid = $dataParam['guid'];
 
-        $end = $dataParam['end'];
-        {
+        $end = $dataParam['end']; {
             $dbS = $this->load->database('default', TRUE);
             $dbS->where('guid', $labelGuid);
             $queryS = $dbS->get('cola_label');
@@ -172,6 +223,8 @@ class Worklog extends CUREST_Controller {
 
         $result = $queryL->row_array();
         $result['labels'] = array($resultS);
+        
+        $this->filter_star($content, $result['id']);
 
         $this->response(array('worklog' => $result, 'success' => TRUE));
     }
@@ -185,7 +238,7 @@ class Worklog extends CUREST_Controller {
 
         $dataParam = json_decode($data, TRUE);
         $updateGuid = $dataParam['guid'];
-        
+
         $db = $this->load->database('default', TRUE);
         $db->where('guid', $updateGuid);
         $db->delete('cola_log');
@@ -200,8 +253,7 @@ class Worklog extends CUREST_Controller {
         while (!feof($file_handle)) {
 
             $line_of_text = fgetcsv($file_handle, 1024 * 20);
-            if (empty($line_of_text))
-            {
+            if (empty($line_of_text)) {
                 continue;
             }
 
@@ -270,7 +322,7 @@ class Worklog extends CUREST_Controller {
             $item['start_time'] = intval($item['start_time']);
             $item['duration'] = floatval($item['duration']);
             $item['id'] = intval($item['id']);
-            $item['html_content'] = "<p>". $item['content'] ."</p>";
+            $item['html_content'] = "<p>" . $item['content'] . "</p>";
             $item['comments'] = 0;
 
             $time = date('Y-m-d', $item['start_time'] / 1000);
