@@ -138,7 +138,7 @@ class Worklog extends CUREST_Controller {
             return;
         }
 
-        $star = $userArr[0];
+        $star = $userArr;
 
         $dbS = $this->load->database('default', TRUE);
         $dbS->where('log_id', $log_id);
