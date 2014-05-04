@@ -27,7 +27,7 @@
         var teamcola = {
             me: {
                 guid: "1bf27d0f003c411193b6f8bfe28b8dfc",
-                avatar: "/uploads/avatar/1bf27d0f003c411193b6f8bfe28b8dfc.jpg",
+                avatar: "/curer/cola/assets/images/avatar.jpeg",
                 name: "curer",
                 email: "studentdeng@hotmail.com"
             },
@@ -155,7 +155,7 @@
             <div class="member-info">
                 <span class="name" title="curer"><em>curer</em></span>
                 <div class="avatar">
-                    <img alt="curer" src="/uploads/avatar/1bf27d0f003c411193b6f8bfe28b8dfc.jpg" />
+                    <img alt="curer" src="/curer/cola/assets/images/avatar.jpeg" />
                 </div>
                 <ul class="info-list">
                     
