@@ -129,7 +129,7 @@ class Worklog extends CUREST_Controller {
         preg_match_all($tag_pattern, $post_content, $tagsarr);
         $tags = implode(',', $tagsarr[1]);
 
-        $user_pattern = "/\@([^\#|\s]+)\s/";
+        $user_pattern = "/\@([^\#|\s]+)/";
 
         preg_match_all($user_pattern, $post_content, $userArr);
         //@数组
