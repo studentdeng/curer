@@ -128,11 +128,11 @@
         
     </div>
     <ul class="nav">
-        <li class=""><a href="/home/">我的日志</a></li>
+        <li class=""><a href="/curer/cola/">我的日志</a></li>
         <li class="team active">
             <a href="/team/"><span>团队日志</span></a>
         </li>
-        <li class=""><a href="/stats/team/member/">统计</a></li>
+        <li class=""><a href="/curer/cola/stats/team/label/">统计</a></li>
         <li class=""><a href="/shop/">积分</a></li>
     </ul>
     <ul class="header-links">
