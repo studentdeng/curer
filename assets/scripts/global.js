@@ -42,8 +42,8 @@ $.preloadImages = function( images ) {
     });
 }
 $.preloadImages([
-    "/curer/cola/assets/images/tiny-loading.gif",
-    "/curer/cola/assets/images/huge-loading.gif"
+    "/curer/assets/images/tiny-loading.gif",
+    "/curer/assets/images/huge-loading.gif"
 ]);
 
 

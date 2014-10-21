@@ -1,36 +1,30 @@
 <?php
 
-session_start();
+$this->session->set_userdata('isLogin', 0);
 
-$_SESSION["login"] = FALSE;
+$username = $this->input->post('username');
+$password = $this->input->post('password');
 
-if (!empty($_POST['username']) && !empty($_POST['password'])) {
-    if ($_POST['username'] == 'studentdeng' && $_POST['password'] == '88888888') {
-        $_SESSION["login"] = TRUE;
+if (!empty($username) && !empty($password)) {
+    if ($username == 'studentdeng' && $password == '88888888') {
+        $this->session->set_userdata('isLogin', 1);
 
-        header('Location: index.php');
+
+
+        echo "login succeed\n";
     } else {
         echo "login failed\n";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Sign in &middot; Twitter Bootstrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="/curer/cola/assets/styles/jquery-ui-1.8.16.custom.css?version=103" rel="stylesheet"/>
-    <link href="/curer/cola/assets/styles/style.css?version=103" rel="stylesheet"/>
-    <link href="/curer/cola/assets/styles/lightbox.css?version=103" rel="stylesheet"/>
+    <?php $this->load->view('header'); ?>
 
-    <link href="/curer/cola/assets/styles/bootstrap.min.css" rel="stylesheet">
+    <link href = "/curer/assets/styles/bootstrap.min.css" rel = "stylesheet" >
 
     <style type="text/css">
         body {
@@ -87,7 +81,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
 <div class="container">
 
-    <form class="form-signin" role="form" action="login.php" method="post">
+    <form class="form-signin" role="form" action="" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <input name="username" type="" class="form-control" placeholder="username" required autofocus>
         <input name="password" type="password" class="form-control" placeholder="Password" required>
