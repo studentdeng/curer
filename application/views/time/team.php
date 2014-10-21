@@ -197,7 +197,7 @@ $labels = file_get_contents($url);
 
             <div class="top-bar clearfix">
                 <h3>curer的工作日志</h3>
-                
+
                 <div class="date-control">
                     <button id="btn-today" class="btn unselectable" unselectable="on">今天</button>
                     <div class="btn-group">
