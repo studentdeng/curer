@@ -2,18 +2,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @author      studentdeng 
- * @link        <studentdeng.github.com> 
- * @datetime    Apr 20, 2014 
+ * @author      studentdeng
+ * @link        <studentdeng.github.com>
+ * @datetime    Apr 20, 2014
  */
 require APPPATH . '/libraries/CUREST_Controller.php';
 
-class Stats extends CUREST_Controller {
-    
+class Stats extends CUREST_Controller
+{
+
     var $interval = 0;
 
-    public function chat_post() {
-
+    public function chat_post()
+    {
         $this->load->model('Label_model');
 
         $inputParam = array('data');
@@ -24,7 +25,6 @@ class Stats extends CUREST_Controller {
         $dataParam = json_decode($data, TRUE);
 
         $this->interval = $dataParam['interval'];
-
         $start = $dataParam['start'];
         $end = $dataParam['end'];
 
@@ -34,7 +34,19 @@ class Stats extends CUREST_Controller {
         ));
     }
 
-    private function calStatsData($start, $end) {
+    public function category_list_get()
+    {
+        $db = $this->load->database('default', TRUE);
+        $sql = "SELECT * FROM `cola_label`  order by priority desc";
+        $query = $db->query($sql);
+        $db->close();
+        $result = $query->result_array();
+
+        $this->response($result);
+    }
+
+    private function calStatsData($start, $end)
+    {
 
         $db = $this->load->database('default', TRUE);
         $sql = "SELECT * FROM `cola_log` WHERE start_time >= ? AND end_time <= ? order by start_time";
@@ -59,38 +71,36 @@ class Stats extends CUREST_Controller {
         $data = array();
         $categories = array();
         foreach ($dataDic as $key => $value) {
-            
-            if ($i == 1)
-            {
+
+            if ($i == 1) {
                 $startTime = $key;
             }
 
             if ($i == $this->interval) {
                 $amount += $value;
                 $data[] = $amount;
-                
+
                 if ($this->interval != 1) {
-                    $categories[] = $startTime."-".$key;
-                }  else {
+                    $categories[] = $startTime . "-" . $key;
+                } else {
                     $categories[] = $startTime;
                 }
-                
+
                 $amount = 0;
                 $i = 1;
                 $startTime = $key;
-                
+
                 continue;
             } else {
                 $amount += $value;
             }
 
-            $i ++;
+            $i++;
         }
-        
-        if ($amount > 0)
-        {
+
+        if ($amount > 0) {
             $data[] = $amount;
-            $categories[] = $startTime."-".$key;
+            $categories[] = $startTime . "-" . $key;
         }
 
         return array(
@@ -99,7 +109,8 @@ class Stats extends CUREST_Controller {
         );
     }
 
-    function calStatsTable($start, $end) {
+    function calStatsTable($start, $end)
+    {
 
         $db = $this->load->database('default', TRUE);
         $sql = "SELECT *, sum(`duration`) as amount FROM `cola_log` WHERE start_time >= ? AND end_time <= ?  group by label_id order by amount desc";
@@ -128,7 +139,7 @@ class Stats extends CUREST_Controller {
             $item['sub_title'] = null;
             $item['title'] = array(
                 array(
-                    'url' => '/curer/cola/stats/team/label?label_id='.$value['label_id'], //TODO::
+                    'url' => '/curer/cola/stats/team/label?label_id=' . $value['label_id'], //TODO::
                     'name' => $label['name'],
                 )
             );
@@ -139,3 +150,4 @@ class Stats extends CUREST_Controller {
         return $data;
     }
 }
+
