@@ -1,4 +1,9 @@
 
+<?php 
+$url = 'http://'. $_SERVER['HTTP_HOST']. '/curer/index.php/cola/stats/category_list'; 
+$labels = file_get_contents($url);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +30,7 @@
                 email: "studentdeng@hotmail.com"
             },
             currentTeam: '990de71f506043858c431e1ea41dc725',
-            teams: [{"labels": [{"color": "#e1c44f", "status": 1, "guid": "551445a49f9a4dc59e008546e1f8ece4", "name": "\u9a7e\u7167"}, {"color": "#d98aaa", "status": 1, "guid": "b53fb7e792fc434983aca02e65786baa", "name": "\u6587\u6863\u7f16\u5199"}, {"color": "#444444", "status": 1, "guid": "8c9a5957d1574d589264f65237fff2fc", "name": "\u4ea7\u54c1\u8bbe\u8ba1"}, {"color": "#72abd7", "status": 1, "guid": "0f3d68fd588f45bcb4e3f766428f048f", "name": "code review"}, {"color": "#72abd7", "status": 1, "guid": "d0a4f92bf564427eaa96e7b76ea65685", "name": "\u82f1\u8bed"}, {"color": "#e1c44f", "status": 1, "guid": "c8df0f1011f343138d631a61ed8b0455", "name": "\u6d3b\u52a8"}, {"color": "#5e966f", "status": 1, "guid": "6362d81ca0574f1d85d2bdaf064ef140", "name": "\u81ea\u6211\u63d0\u9ad8"}, {"color": "#9073b8", "status": 1, "guid": "1fa37549b3eb45ce86f2ded7d4e29310", "name": "\u4ea7\u54c1\u5f00\u53d1"}, {"color": "#808fda", "status": 1, "guid": "6b1a02ae1d764fc48c4fa24ec3008a7f", "name": "\u9879\u76ee\u4f1a\u8bae\u4e0e\u6c9f\u901a"}, {"color": "#ed9a51", "status": 1, "guid": "e5bdd8514d1240b2ba953bf9c2d5a28e", "name": "\u5176\u4ed6"}, {"color": "#a47768", "status": 1, "guid": "2da5e9731d1547a2b369070ed1139e12", "name": "\u5065\u8eab"}], "guid": "990de71f506043858c431e1ea41dc725", "name": "Studentdeng", "archive_labels": []}]
+            teams: [{"labels": <?php echo $labels?>, "guid": "990de71f506043858c431e1ea41dc725", "name": "Studentdeng", "archive_labels": []}]
         };
     </script>
     <script src="/curer/cola/assets/scripts/jquery-1.6.2.min.js?version=103"></script>
