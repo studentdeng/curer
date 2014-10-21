@@ -1,8 +1,8 @@
 ( function( $ ) {
 
 $.preloadImages([
-    "/curer/cola/assets/images/yin-dang-de-yi-tian.png",
-    "/curer/cola/assets/images/no-worklog-day.png"
+    "/curer/assets/images/yin-dang-de-yi-tian.png",
+    "/curer/assets/images/no-worklog-day.png"
 ]);
 
 var currentDate = Date.today(),

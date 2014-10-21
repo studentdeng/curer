@@ -6,11 +6,11 @@
 .team-worklog.no-worklog {
     padding: 0;
     height: 400px;
-    background: url(/curer/cola/assets/images/no-worklog-day.png) no-repeat 50% 50%;
+    background: url(/curer/assets/images/no-worklog-day.png) no-repeat 50% 50%;
 }
 
 .team-worklog.no-worklog.new-day {
-    background: url(/curer/cola/assets/images/yin-dang-de-yi-tian.png) no-repeat 50% 50%;
+    background: url(/curer/assets/images/yin-dang-de-yi-tian.png) no-repeat 50% 50%;
 }
 
 .team-worklog .member-worklog {
@@ -78,14 +78,14 @@
 .worklogs .title {
     width: 68px;
     height: 68px;
-    background: url(/curer/cola/assets/images/date-bg.png) no-repeat 0 0;
+    background: url(/curer/assets/images/date-bg.png) no-repeat 0 0;
     position: absolute;
     top: 12px;
     left: 10px;
 }
 
 .worklogs.vocation .title {
-    background: url(/curer/cola/assets/images/date-bg-vocation.png) no-repeat 0 0;
+    background: url(/curer/assets/images/date-bg-vocation.png) no-repeat 0 0;
 }
 
 .worklogs .title .month {

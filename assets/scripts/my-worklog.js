@@ -1,9 +1,9 @@
 ( function( $ ) {
 
 $.preloadImages([
-    "/curer/cola/assets/images/pop-arrow.png",
-    "/curer/cola/assets/images/date-control-prev.png",
-    "/curer/cola/assets/images/date-control-next.png"
+    "/curer/assets/images/pop-arrow.png",
+    "/curer/assets/images/date-control-prev.png",
+    "/curer/assets/images/date-control-next.png"
 ]);
 
 var cals = {},
