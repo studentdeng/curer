@@ -1,5 +1,10 @@
 <?php
 
+define('DB_PASSWORD', 'studentdeng');
+define('DB_USER', 'root');
+define('DB_HOST', '127.0.0.1');
+define('CLIENT_MULTI_RESULTS', 131072);
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -199,11 +204,6 @@ if (defined('ENVIRONMENT'))
  * And away we go...
  *
  */
-
-define('DB_PASSWORD', 'studentdeng');
-define('DB_USER', 'root');
-define('DB_HOST', '127.0.0.1');
-define('CLIENT_MULTI_RESULTS', 131072);
         
 date_default_timezone_set('PRC');
 
