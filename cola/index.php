@@ -1,3 +1,17 @@
+<?php 
+
+session_start();
+
+if (empty($_SESSION["login"])) {
+    header('Location: login.php');
+}
+
+$isLogin = $_SESSION["login"];
+if (!$isLogin) {
+    header('Location: login.php');
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
