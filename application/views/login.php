@@ -9,9 +9,9 @@ if (!empty($username) && !empty($password)) {
     if ($username == 'studentdeng' && $password == '88888888') {
         $this->session->set_userdata('isLogin', 1);
 
+        $url = base_url("/index.php/time/index");
+        redirect($url, 'location', 301);
 
-
-        echo "login succeed\n";
     } else {
         echo "login failed\n";
     }
