@@ -61,7 +61,7 @@
     border-top: 1px dashed #d1d1d1;
     position: relative;
     min-height: 70px;
-    min-height: 75px;
+    min-height: 75px \0/;
 }
 
 .worklogs.first {
