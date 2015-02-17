@@ -7,7 +7,9 @@
         <title>我的日志 - TeamCola</title>
         <?php $this->load->view('header'); ?>
         <script>
-            var teamcola = <?php echo json_encode($teamcola) ?>
+            var teamcola = <?php echo json_encode($teamcola); ?>;
+            
+            console.log(teamcola.teams[0].labels);
         </script>
 
 

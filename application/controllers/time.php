@@ -23,7 +23,8 @@ class Time extends CI_Controller {
 
     function createTeamcola() {
         $url = 'http://' . $_SERVER['HTTP_HOST'] . '/curer/index.php/cola/stats/category_list';
-        $labels = file_get_contents($url);
+        $labelsString = file_get_contents($url);
+        $labels = json_decode($labelsString, TRUE);
 
         $teamcola = array();
         $teamcola['api'] = array(
@@ -43,12 +44,14 @@ class Time extends CI_Controller {
 
         $teamcola['currentTeam'] = '990de71f506043858c431e1ea41dc725';
         $teamcola['teams'] = array(
-            'labels' => $labels,
-            'guid' => "990de71f506043858c431e1ea41dc725",
-            'name' => "Studentdeng",
-            'archive_labels' => array(),
+            array(
+                'labels' => $labels,
+                'guid' => "990de71f506043858c431e1ea41dc725",
+                'name' => "Studentdeng",
+                'archive_labels' => array(),
+            )
         );
-        
+
         return $teamcola;
     }
 
