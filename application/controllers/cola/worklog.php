@@ -40,9 +40,11 @@ class Worklog extends CUREST_Controller {
                 $dbS->close();
 
                 $resultS = $queryS->row_array();
-                $resultS['id'] = intval($resultS['id']);
-                $resultS['status'] = intval($resultS['status']);
-                $resultS['priority'] = intval($resultS['priority']);
+                if (!empty($resultS)) {
+                    $resultS['id'] = intval($resultS['id']);
+                    $resultS['status'] = intval($resultS['status']);
+                    $resultS['priority'] = intval($resultS['priority']);
+                }
 
                 $label = $resultS;
             }
@@ -116,7 +118,7 @@ class Worklog extends CUREST_Controller {
 
         $result = $queryL->row_array();
         $result['labels'] = array($resultS);
-        
+
         $this->filter_star($content, $insertId);
 
         $this->response(array('worklog' => $result, 'success' => TRUE));
@@ -148,7 +150,7 @@ class Worklog extends CUREST_Controller {
         $resultS = $queryS->row_array();
         if ($queryS->num_rows() > 0) {
             $id = $resultS['id'];
-            
+
             $db = $this->load->database('default', TRUE);
             $db->where('id', $id);
             $db->update('cola_star', array(
@@ -219,7 +221,7 @@ class Worklog extends CUREST_Controller {
 
         $result = $queryL->row_array();
         $result['labels'] = array($resultS);
-        
+
         $this->filter_star($content, $result['id']);
 
         $this->response(array('worklog' => $result, 'success' => TRUE));
@@ -306,9 +308,11 @@ class Worklog extends CUREST_Controller {
                 $dbS->close();
 
                 $resultS = $queryS->row_array();
-                $resultS['id'] = intval($resultS['id']);
-                $resultS['status'] = intval($resultS['status']);
-                $resultS['priority'] = intval($resultS['priority']);
+                if (!empty($resultS)) {
+                    $resultS['id'] = intval($resultS['id']);
+                    $resultS['status'] = intval($resultS['status']);
+                    $resultS['priority'] = intval($resultS['priority']);
+                }
 
                 $label = $resultS;
             }
