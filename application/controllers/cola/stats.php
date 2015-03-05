@@ -37,7 +37,7 @@ class Stats extends CUREST_Controller
     public function category_list_get()
     {
         $db = $this->load->database('default', TRUE);
-        $sql = "SELECT * FROM `cola_label`  order by priority desc";
+        $sql = "SELECT * FROM `cola_label` WHERE `status` == 1 order by priority desc";
         $query = $db->query($sql);
         $db->close();
         $result = $query->result_array();
